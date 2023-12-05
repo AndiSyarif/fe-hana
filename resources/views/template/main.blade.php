@@ -39,7 +39,10 @@
                     <a href="/" class="nav-link">Dashboard</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/" class="nav-link">Barang</a>
+                    <a href="/point" class="nav-link">Point</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/user" class="nav-link">User</a>
                 </li>
             </ul>
 
@@ -213,7 +216,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="/dashboard" class="nav-link">
                                 <i class="nav-icon fa-solid fa-gauge-high"></i>
                                 <p>
                                     Dashboard
@@ -221,10 +224,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/barang" class="nav-link">
-                                <i class="nav-icon fa-solid fa-box"></i>
+                            <a href="/point" class="nav-link">
+                                <i class="nav-icon fa-solid fa-trophy"></i>
                                 <p>
-                                    Barang
+                                    Point
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user" class="nav-link">
+                                <i class="nav-icon fa-solid fa-users"></i>
+                                <p>
+                                    User
                                 </p>
                             </a>
                         </li>
@@ -267,7 +278,7 @@
 
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2023 <a href="https://andisdev.tech">Andis Dev</a>.</strong> All rights
+            <strong>Copyright &copy; 2023 <a href="https://andis.tech">Andis Dev</a>.</strong> All rights
             reserved.
         </footer>
     </div>
