@@ -24,6 +24,12 @@ Route::post('/login', [AuthController::class, 'prosesLogin']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'prosesRegister']);
 
-Route::middleware(['api.token'])->group(function () {
+// Route::get('/dashboard', [DashboardController::class, 'index']);
+
+// Route::middleware(['api.token'])->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'index']);
+// });
+
+Route::group(['middleware' => ['web']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 });

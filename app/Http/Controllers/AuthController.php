@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -30,10 +31,8 @@ class AuthController extends Controller
         if ($response->successful()) {
             $data =  $responseData['data']['user'];
             Alert::success('Success', $responseData['message']);
-            return view('dashboard.dashboard', [
-                'data' => $data
-            ]);
-            // return redirect('/dashboard')->with('data', $data);
+            Session::put('data', $data);
+            return redirect('/dashboard')->with('data', $data);
         } else {
             Alert::error('Error', $responseData['message']);
             return redirect('/login');
