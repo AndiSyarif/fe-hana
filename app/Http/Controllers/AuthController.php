@@ -31,7 +31,11 @@ class AuthController extends Controller
         if ($response->successful()) {
             $data =  $responseData['data']['user'];
             Alert::success('Success', $responseData['message']);
-            Session::put('data', $data);
+            $apiToken = $responseData['data']['api_token'];
+            session([
+                'api_token' => $apiToken,
+                'user' => $data,
+                ]);
             return redirect('/dashboard')->with('data', $data);
         } else {
             Alert::error('Error', $responseData['message']);
@@ -71,5 +75,11 @@ class AuthController extends Controller
             Alert::error('Error', $responseData['email']);
             return redirect('/register');
         }
+    }
+
+    public function logout(){
+
+        Session::flush();
+        return redirect('/login');
     }
 }

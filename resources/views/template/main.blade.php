@@ -181,6 +181,7 @@
             <a href="/dashboard" class="brand-link">
                 <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
+                   
                 <span class="brand-text font-weight-light">Andis Dev</span>
             </a>
 
@@ -192,7 +193,10 @@
                         <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ session('data.name', 'Andis Dev') }}</a>
+                        @php
+                        $name = session('user')['name'];
+                    @endphp
+                        <a href="#" class="d-block">{{$name ?? 'Andis Dev'}}</a>
                     </div>
                 </div>
 

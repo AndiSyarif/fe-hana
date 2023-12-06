@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
         if (strpos(url()->current(), 'localhost')) {
             $apiHost = env('API_HOST_LOCAL');
         } else {
