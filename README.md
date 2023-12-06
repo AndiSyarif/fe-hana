@@ -9,7 +9,7 @@
 - Datatable
 - Javascript Validation
 - FontAwesome 6
-- CRUD REST API 
+- Login, Register, CRUD REST API 
 
 ## Required
 
