@@ -23,18 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AuthController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'index']);
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/login', [AuthController::class, 'prosesLogin']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'prosesRegister']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::resource('/point', PointController::class);
-Route::resource('/user', UserController::class);
 
-// Route::middleware(['api.token'])->group(function () {
-//     Route::get('/dashboard', [DashboardController::class, 'index']);
-// });
-
-// Route::group(['middleware' => ['web']], function () {
-//     Route::get('/dashboard', [DashboardController::class, 'index']);
-// });
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('api.token');
+Route::resource('/point', PointController::class)->middleware('api.token');
+Route::resource('/user', UserController::class)->middleware('api.token');

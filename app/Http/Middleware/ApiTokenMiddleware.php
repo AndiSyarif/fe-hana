@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ApiTokenMiddleware
 {
@@ -17,22 +16,10 @@ class ApiTokenMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $apiToken = $request->header('api_token');
-
-        if (!$apiToken) {
-            // Token is not present, redirect to login
+        if (!session('api_token')) {
             return redirect('/login');
         }
-
-        // Check if the token is valid (adjust this based on your actual implementation)
-        $user = Auth::guard('api')->user();
-
-        if (!$user) {
-            // Invalid token, redirect to login
-            return redirect('/login');
-        }
-
-        // Token is valid, continue with the request
+    
         return $next($request);
     }
 }
