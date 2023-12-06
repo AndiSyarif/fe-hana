@@ -22,7 +22,11 @@ class UserController extends Controller
 
         $response = Http::get($apiHost . '/user');
 
-        $data = $response->json()['data'];
+        $data = '';
+        if ($response->successful()) {
+            $data = $response->json()['data'];
+        }
+
         return view('user.user', [
             'data' => $data
         ]);
