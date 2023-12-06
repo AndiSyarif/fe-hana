@@ -22,7 +22,6 @@ class PointController extends Controller
         }
 
         $response = Http::get($apiHost . '/index');
-
         $data = $response->json()['data'];
         return view('point.point', [
             'data' => $data

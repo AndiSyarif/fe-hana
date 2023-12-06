@@ -30,7 +30,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{$point}}</h3>
+                                <h3>{{$point ?? 0}}</h3>
                                 <p>Daftar Point</p>
                             </div>
                             <div class="icon">
@@ -45,7 +45,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{$user}}</h3>
+                                <h3>{{$user ?? 0}}</h3>
 
                                 <p>Daftar User</p>
                             </div>
