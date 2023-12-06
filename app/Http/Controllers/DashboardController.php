@@ -14,27 +14,32 @@ class DashboardController extends Controller
         } else {
             $apiHost = env('API_HOST_SERVER');
         }
+
         //user
         $responseUser = Http::get($apiHost . '/user');
 
-        $dataUser = $responseUser->json()['data'];
-
         $countUser = 0;
-        if ($dataUser) {
-            $countUser = count($dataUser);
+        if ( $responseUser->successful()) {
+            $dataUser = $responseUser->json()['data'];
+
+            if($dataUser){
+                $countUser = count($dataUser);
+            }
+            
         }
 
         //point
         $responsepoint = Http::get($apiHost . '/index');
-
-        $dataPoint = $responsepoint->json()['data'];
-
         $countPoint = 0;
 
-        if ($dataPoint) {
-            $countPoint = count($dataPoint);
-        }
+        if ( $responseUser->successful()) {
+            $dataPoint = $responsepoint->json()['data'];
+            if( $dataPoint){
+                $countPoint = count($dataPoint);
+            }
 
+           
+        }
         return view('dashboard.dashboard', [
             'user' =>  $countUser,
             'point' => $countPoint
