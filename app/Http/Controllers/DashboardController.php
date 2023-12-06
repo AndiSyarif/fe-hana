@@ -19,14 +19,21 @@ class DashboardController extends Controller
 
         $dataUser = $responseUser->json()['data'];
 
-        $countUser = count($dataUser);
+        $countUser = 0;
+        if ($dataUser) {
+            $countUser = count($dataUser);
+        }
 
         //point
         $responsepoint = Http::get($apiHost . '/index');
 
         $dataPoint = $responsepoint->json()['data'];
 
-        $countPoint = count($dataPoint);
+        $countPoint = 0;
+
+        if ($dataPoint) {
+            $countPoint = count($dataPoint);
+        }
 
         return view('dashboard.dashboard', [
             'user' =>  $countUser,

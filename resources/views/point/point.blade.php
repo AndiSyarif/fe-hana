@@ -36,6 +36,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                                @if( $data)
                                 <table id="example1" class="table table-striped table-bordered table-hover text-center"
                                     style="width: 100%">
                                     <thead>
@@ -72,6 +73,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                @else
+                                <div class="text-center">Data Not Found !</div>
+                                @endif
                             </div>
                             <!-- /.card-body -->
                         </div>
