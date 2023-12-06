@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [AuthController::class, 'index']);
 
-Route::get('/login', [AuthController::class, 'index']);
+Route::get('/login', [AuthController::class, 'index'])->middleware('redirect.login');;
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/login', [AuthController::class, 'prosesLogin']);
 Route::get('/register', [AuthController::class, 'register']);
