@@ -32,7 +32,7 @@ class DashboardController extends Controller
         $responsepoint = Http::get($apiHost . '/index');
         $countPoint = 0;
 
-        if ( $responseUser->successful()) {
+        if ( $responsepoint->successful()) {
             $dataPoint = $responsepoint->json()['data'];
             if( $dataPoint){
                 $countPoint = count($dataPoint);
